@@ -15,8 +15,8 @@ import mycourseheaderPage from '../pageobjects/practice/mycourseheader.page';
 import opentabPage from '../pageobjects/practice/opentab.page';
 import openwindowPage from '../pageobjects/practice/openwindow.page';
 import practicePage from '../pageobjects/practice/practice.page';
-import radiobuttonPage from '../pageobjects/Radio-Button/radiobutton.page';
-import tablecelltextPage from '../pageobjects/Table/tablecelltext.page';
+import radiobuttonPage from '../pageobjects/practice/radiobutton.page';
+import tablecelltextPage from '../pageobjects/practice/tablecelltext.page';
 
 Given(/^I am on the landing page of letskodeit$/, async () => {
     await browser.url("https://courses.letskodeit.com/practice")
