@@ -1,8 +1,11 @@
 Feature: Automate letskodeit app
 
-    Scenario: signin and automate letskodeit app
+    Background: Landing page
 
         Given I am on the landing page of letskodeit
+
+    Scenario: Automate every element in letskodeit app
+
         Then I should see the header as "Practice Page"
         When I click on radiobutton, select from drop down
         When I select from multiple select, click on checkbox
@@ -18,13 +21,16 @@ Feature: Automate letskodeit app
         Then I validate the text of webtable "Selenium WebDriver With Java"
         When I enter name and click confirm
         Then The alert header contains "Are you sure"
-        When I enable and enter text
+        When I click on enable and enter text
         When I click on show and enter text
         When I hover and click on reload
         Then I see page header as "Practice Page"
         When I switch to iframe
         Then I validate the header as "All Courses"
         When I switch back from iframe
+
+    Scenario: signin to letskodeit app
+
         When I click on signin
         When I click on signup
         Then I must navigate to signup page with header "Sign Up"
