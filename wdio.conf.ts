@@ -59,7 +59,7 @@ export const config: WebdriverIO.Config = {
         browserName: 'MicrosoftEdge',
         acceptInsecureCerts: true
     }
-],
+    ],
     //
     // ===================
     // Test Configurations
@@ -134,6 +134,7 @@ export const config: WebdriverIO.Config = {
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: true,
+            useCucumberStepReporter: true
         }]
     ],
 
@@ -259,8 +260,11 @@ export const config: WebdriverIO.Config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {Object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    afterStep: async function (step, scenario, result, context) {
+        if (!result.passed) {
+            await browser.takeScreenshot();
+        }
+    },
     /**
      *
      * Runs after a Cucumber Scenario.
