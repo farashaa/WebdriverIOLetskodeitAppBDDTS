@@ -113,7 +113,6 @@ Then(/^I see page header as \"([^\"]*)\"$/, async (practicepage) => {
 });
 
 When(/^I switch to iframe$/, async () => {
-    var iframe = $("//iframe[@src='https://courses.letskodeit.com/courses']")
     await browser.switchToFrame(0)
 });
 
