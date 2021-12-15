@@ -94,7 +94,7 @@ Then(/^I validate the text of webtable \"([^\"]*)\"$/, async (seleniumwebdriverw
     await expect(tablecelltextPage.tablecellText).toHaveText(seleniumwebdriverwithjava)
 });
 
-When(/^I enable and enter text$/, async () => {
+When(/^I click on enable and enter text$/, async () => {
     await enablePage.clickEnable()
     await enablePage.setEnableText()
 });
