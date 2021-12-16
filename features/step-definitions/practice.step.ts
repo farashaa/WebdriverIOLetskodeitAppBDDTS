@@ -112,11 +112,8 @@ Then(/^I see page header as \"([^\"]*)\"$/, async (practicepage) => {
     await expect(practicePage.practiceHeader).toHaveText(practicepage)
 });
 
-When(/^I switch to iframe$/, async () => {
+Then(/^I validate the header of iframe as \"([^\"]*)\"$/, async (allcourses) => {
     await browser.switchToFrame(0)
-});
-
-Then(/^I validate the header as \"([^\"]*)\"$/, async (allcourses) => {
     await expect(iframePage.iframeHeader).toHaveText(allcourses)
     browser.switchToFrame(null)
 });
