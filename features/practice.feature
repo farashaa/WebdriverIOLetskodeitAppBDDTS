@@ -25,8 +25,7 @@ Feature: Automate letskodeit app
         When I click on show and enter text
         When I hover and click on reload
         Then I see page header as "Practice Page"
-        When I switch to iframe
-        Then I validate the header as "All Courses"
+        Then I validate the header of iframe as "All Courses"
 
     Scenario: signin to letskodeit app
 
