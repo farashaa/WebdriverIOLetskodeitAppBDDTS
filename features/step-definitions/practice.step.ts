@@ -17,10 +17,11 @@ import openwindowPage from '../pageobjects/practice/openWindow.page';
 import practicePage from '../pageobjects/practice/practice.page';
 import radiobuttonPage from '../pageobjects/practice/radioButton.page';
 import tablecelltextPage from '../pageobjects/practice/tableCellText.page';
+import landingPageStep from '../pageobjects/practice/landingPage.step';
+import data from '../../testdata/data.json'
 
 Given(/^I am on the landing page of letskodeit$/, async () => {
-    await browser.url("https://courses.letskodeit.com/practice")
-    await browser.maximizeWindow()
+    await landingPageStep.invokeUrl()
 });
 
 Then(/^I should see the header as \"([^\"]*)\"$/, async (practicepage) => {
@@ -29,11 +30,11 @@ Then(/^I should see the header as \"([^\"]*)\"$/, async (practicepage) => {
 
 When(/^I click on radiobutton, select from drop down$/, async () => {
     await radiobuttonPage.clickRadioButton()
-    await dropdownPage.selectDropDown()
+    await dropdownPage.selectDropDown(data.carSelect)
 });
 
 When(/^I select from multiple select, click on checkbox$/, async () => {
-    await multipleselectPage.setMultipleSelect()
+    await multipleselectPage.setMultipleSelect(data.multipleSelectValue)
     await checkboxPage.clickCheckBox()
 });
 
@@ -80,14 +81,15 @@ When(/^I must close the window and navigate to previous window$/, async () => {
 });
 
 When(/^I enter name and click confirm$/, async () => {
-    await alertPage.enterName()
+    await alertPage.enterName(faker.name.firstName())
     await alertPage.clickConfirm()
 });
 
 Then(/^The alert header contains \"([^\"]*)\"$/, async (areyousure) => {
-    var alertprompt = await browser.getAlertText()
-    expect(alertprompt).toHaveTextContaining(areyousure)
-    await browser.dismissAlert()
+    await browser.pause(5000)
+    const alertMessage = await browser.getAlertText()
+    expect(alertMessage).toHaveTextContaining(areyousure)
+    await browser.acceptAlert()
 });
 
 Then(/^I validate the text of webtable \"([^\"]*)\"$/, async (seleniumwebdriverwithjava) => {
@@ -96,12 +98,12 @@ Then(/^I validate the text of webtable \"([^\"]*)\"$/, async (seleniumwebdriverw
 
 When(/^I click on enable and enter text$/, async () => {
     await enablePage.clickEnable()
-    await enablePage.setEnableText()
+    await enablePage.setEnableText(data.enableTextValue)
 });
 
 When(/^I click on show and enter text$/, async () => {
     await elementdisplayedPage.clickShow()
-    await elementdisplayedPage.setShowText()
+    await elementdisplayedPage.setShowText(data.showTextValue)
 });
 
 When(/^I hover and click on reload$/, async () => {
