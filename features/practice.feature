@@ -27,7 +27,6 @@ Feature: Automate letskodeit app
         Then I see page header as "Practice Page"
         When I switch to iframe
         Then I validate the header as "All Courses"
-        When I switch back from iframe
 
     Scenario: signin to letskodeit app
 

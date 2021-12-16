@@ -1,22 +1,22 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import faker from "faker"
 import alertPage from '../pageobjects/practice/alert.page';
-import checkboxPage from '../pageobjects/practice/checkbox.page';
+import checkboxPage from '../pageobjects/practice/checkBox.page';
 import registerPage from '../pageobjects/Create-account/register.page';
-import signinPage from '../pageobjects/Create-account/signin.page';
-import signupPage from '../pageobjects/Create-account/signup.page';
-import dropdownPage from '../pageobjects/practice/dropdown.page';
-import elementdisplayedPage from '../pageobjects/practice/elementdisplayed.page';
+import signinPage from '../pageobjects/Create-account/signIn.page';
+import signupPage from '../pageobjects/Create-account/signUp.page';
+import dropdownPage from '../pageobjects/practice/dropDown.page';
+import elementdisplayedPage from '../pageobjects/practice/elementDisplayed.page';
 import enablePage from '../pageobjects/practice/enable.page';
 import iframePage from '../pageobjects/practice/iframe.page';
 import reloadPage from '../pageobjects/practice/reload.page';
-import multipleselectPage from '../pageobjects/practice/multipleselect.page';
-import mycourseheaderPage from '../pageobjects/practice/mycourseheader.page';
-import opentabPage from '../pageobjects/practice/opentab.page';
-import openwindowPage from '../pageobjects/practice/openwindow.page';
+import multipleselectPage from '../pageobjects/practice/multipleSelect.page';
+import mycourseheaderPage from '../pageobjects/practice/myCourseHeader.page';
+import opentabPage from '../pageobjects/practice/openTab.page';
+import openwindowPage from '../pageobjects/practice/openWindow.page';
 import practicePage from '../pageobjects/practice/practice.page';
-import radiobuttonPage from '../pageobjects/practice/radiobutton.page';
-import tablecelltextPage from '../pageobjects/practice/tablecelltext.page';
+import radiobuttonPage from '../pageobjects/practice/radioButton.page';
+import tablecelltextPage from '../pageobjects/practice/tableCellText.page';
 
 Given(/^I am on the landing page of letskodeit$/, async () => {
     await browser.url("https://courses.letskodeit.com/practice")
@@ -118,10 +118,6 @@ When(/^I switch to iframe$/, async () => {
 
 Then(/^I validate the header as \"([^\"]*)\"$/, async (allcourses) => {
     await expect(iframePage.iframeHeader).toHaveText(allcourses)
-
-});
-
-When(/^I switch back from iframe$/, async () => {
     browser.switchToFrame(null)
 });
 
