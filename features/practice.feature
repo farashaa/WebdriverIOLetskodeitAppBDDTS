@@ -4,27 +4,65 @@ Feature: Automate letskodeit app
 
         Given I am on the landing page of letskodeit
 
-    Scenario: Automate every element in letskodeit app
+    Scenario: Automate header of practice page
 
         Then I should see the header as "Practice Page"
-        When I click on radiobutton, select from drop down
-        When I select from multiple select, click on checkbox
+
+    Scenario: Automate Radio Button Example
+
+        When I click on radiobutton
+
+    Scenario: Automate Select Class Example
+
+        When I select from drop down
+
+    Scenario: Automate Multiple Select Example
+
+        When I select from multiple select
+
+    Scenario: Automate Checkbox Example
+
+        When I click on checkbox
+
+    Scenario: Automate Switch Window Example
+
         When I click on open window
         When I must be navigated to all courses page
         Then The header of page should be "All Courses"
         When I close all courses page and navigate to practice page
+
+    Scenario: Automate Switch Tab Example
+
         When I click on open tab
         When I should be navigated to courses page
         When I click on javascript for beginners
         Then I must see the header of course as "JavaScript for beginners"
         When I must close the window and navigate to previous window
+
+    Scenario: Automate Web Table Example
+
         Then I validate the text of webtable "Selenium WebDriver With Java"
+
+    Scenario: Automate Switch To Alert Example
+
         When I enter name and click confirm
         Then The alert header contains "Are you sure"
+
+    Scenario: Automate Enabled/Disabled Example
+
         When I click on enable and enter text
+
+    Scenario: Automate Element Displayed Example
+
         When I click on show and enter text
+
+    Scenario: Automate Mouse Hover Example
+
         When I hover and click on reload
         Then I see page header as "Practice Page"
+
+    Scenario: Automate iFrame Example
+    
         Then I validate the header of iframe as "All Courses"
 
     Scenario: signin to letskodeit app
