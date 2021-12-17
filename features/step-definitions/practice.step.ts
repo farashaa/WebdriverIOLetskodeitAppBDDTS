@@ -28,13 +28,19 @@ Then(/^I should see the header as \"([^\"]*)\"$/, async (practicepage) => {
     await expect(practicePage.practiceHeader).toHaveText(practicepage)
 });
 
-When(/^I click on radiobutton, select from drop down$/, async () => {
+When(/^I click on radiobutton$/, async () => {
     await radiobuttonPage.clickRadioButton()
+});
+
+When(/^I select from drop down$/, async () => {
     await dropdownPage.selectDropDown(data.carSelect)
 });
 
-When(/^I select from multiple select, click on checkbox$/, async () => {
+When(/^I select from multiple select$/, async () => {
     await multipleselectPage.setMultipleSelect(data.multipleSelectValue)
+});
+
+When(/^I click on checkbox$/, async () => {
     await checkboxPage.clickCheckBox()
 });
 
@@ -86,10 +92,9 @@ When(/^I enter name and click confirm$/, async () => {
 });
 
 Then(/^The alert header contains \"([^\"]*)\"$/, async (areyousure) => {
-    await browser.pause(5000)
     const alertMessage = await browser.getAlertText()
-    expect(alertMessage).toHaveTextContaining(areyousure)
     await browser.acceptAlert()
+    expect(alertMessage).toContain(areyousure)
 });
 
 Then(/^I validate the text of webtable \"([^\"]*)\"$/, async (seleniumwebdriverwithjava) => {
