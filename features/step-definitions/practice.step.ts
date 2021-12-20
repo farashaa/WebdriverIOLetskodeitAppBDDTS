@@ -1,24 +1,16 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import faker from "faker"
-import alertPage from '../pageobjects/practice/alert.page';
-import checkboxPage from '../pageobjects/practice/checkBox.page';
 import registerPage from '../pageobjects/Create-account/register.page';
 import signinPage from '../pageobjects/Create-account/signIn.page';
 import signupPage from '../pageobjects/Create-account/signUp.page';
-import dropdownPage from '../pageobjects/practice/dropDown.page';
-import elementdisplayedPage from '../pageobjects/practice/elementDisplayed.page';
-import enablePage from '../pageobjects/practice/enable.page';
 import iframePage from '../pageobjects/practice/iframe.page';
 import reloadPage from '../pageobjects/practice/reload.page';
-import multipleselectPage from '../pageobjects/practice/multipleSelect.page';
-import mycourseheaderPage from '../pageobjects/practice/myCourseHeader.page';
-import opentabPage from '../pageobjects/practice/openTab.page';
-import openwindowPage from '../pageobjects/practice/openWindow.page';
 import practicePage from '../pageobjects/practice/practice.page';
-import radiobuttonPage from '../pageobjects/practice/radioButton.page';
-import tablecelltextPage from '../pageobjects/practice/tableCellText.page';
 import landingPageStep from '../pageobjects/practice/landingPage.step';
 import data from '../../testdata/data.json'
+import firstDivisionPage from '../pageobjects/practice/firstDivision.page';
+import secondDivisionPage from '../pageobjects/practice/secondDivision.page';
+import thirdDivisionPage from '../pageobjects/practice/thirdDivision.page';
 
 Given(/^I am on the landing page of letskodeit$/, async () => {
     await landingPageStep.invokeUrl()
@@ -29,23 +21,39 @@ Then(/^I should see the header as \"([^\"]*)\"$/, async (practicepage) => {
 });
 
 When(/^I click on radiobutton$/, async () => {
-    await radiobuttonPage.clickRadioButton()
+    await firstDivisionPage.clickRadioButton()
+});
+
+Then(/^I can see the radiobutton selected$/, async () => {
+    await firstDivisionPage.radioButton.isSelected()
 });
 
 When(/^I select from drop down$/, async () => {
-    await dropdownPage.selectDropDown(data.carSelect)
+    await firstDivisionPage.selectDropDown(data.carSelect)
+});
+
+Then(/^I can see the text of dropdown as \"([^\"]*)\"$/, async (bmw) => {
+    expect(firstDivisionPage.selectDropDown).toHaveText(bmw)
 });
 
 When(/^I select from multiple select$/, async () => {
-    await multipleselectPage.setMultipleSelect(data.multipleSelectValue)
+    await firstDivisionPage.setMultipleSelect(data.multipleSelectValue)
+});
+
+Then(/^I can see the text of multipleselect as \"([^\"]*)\"$/, async (peach) => {
+    expect(firstDivisionPage.setMultipleSelect).toHaveText(peach)
 });
 
 When(/^I click on checkbox$/, async () => {
-    await checkboxPage.clickCheckBox()
+    await firstDivisionPage.clickCheckBox()
+});
+
+Then(/^I can see the checkbox selected$/, async () => {
+    await firstDivisionPage.checkbox.isSelected()
 });
 
 When(/^I click on open window$/, async () => {
-    await openwindowPage.clickOpenWindow()
+    await secondDivisionPage.clickOpenWindow()
 });
 
 When(/^I must be navigated to all courses page$/, async () => {
@@ -54,7 +62,7 @@ When(/^I must be navigated to all courses page$/, async () => {
 });
 
 Then(/^The header of page should be \"([^\"]*)\"$/, async (allcourses) => {
-    await expect(openwindowPage.allcoursesHeader).toHaveText(allcourses)
+    await expect(secondDivisionPage.allcoursesHeader).toHaveText(allcourses)
 });
 
 When(/^I close all courses page and navigate to practice page$/, async () => {
@@ -64,7 +72,7 @@ When(/^I close all courses page and navigate to practice page$/, async () => {
 });
 
 When(/^I click on open tab$/, async () => {
-    await opentabPage.clickOpenTab()
+    await secondDivisionPage.clickOpenTab()
 });
 
 When(/^I should be navigated to courses page$/, async () => {
@@ -73,11 +81,11 @@ When(/^I should be navigated to courses page$/, async () => {
 });
 
 When(/^I click on javascript for beginners$/, async () => {
-    await opentabPage.clickJavascript()
+    await secondDivisionPage.clickJavascript()
 });
 
 Then(/^I must see the header of course as \"([^\"]*)\"$/, async (javascriptforbeginners) => {
-    await expect(opentabPage.javascriptHeader).toHaveText(javascriptforbeginners)
+    await expect(secondDivisionPage.javascriptHeader).toHaveText(javascriptforbeginners)
 });
 
 When(/^I must close the window and navigate to previous window$/, async () => {
@@ -87,8 +95,8 @@ When(/^I must close the window and navigate to previous window$/, async () => {
 });
 
 When(/^I enter name and click confirm$/, async () => {
-    await alertPage.enterName(faker.name.firstName())
-    await alertPage.clickConfirm()
+    await secondDivisionPage.enterName(faker.name.firstName())
+    await secondDivisionPage.clickConfirm()
 });
 
 Then(/^The alert header contains \"([^\"]*)\"$/, async (areyousure) => {
@@ -98,17 +106,17 @@ Then(/^The alert header contains \"([^\"]*)\"$/, async (areyousure) => {
 });
 
 Then(/^I validate the text of webtable \"([^\"]*)\"$/, async (seleniumwebdriverwithjava) => {
-    await expect(tablecelltextPage.tablecellText).toHaveText(seleniumwebdriverwithjava)
+    await expect(thirdDivisionPage.tablecellText).toHaveText(seleniumwebdriverwithjava)
 });
 
 When(/^I click on enable and enter text$/, async () => {
-    await enablePage.clickEnable()
-    await enablePage.setEnableText(data.enableTextValue)
+    await thirdDivisionPage.clickEnable()
+    await thirdDivisionPage.setEnableText(data.enableTextValue)
 });
 
 When(/^I click on show and enter text$/, async () => {
-    await elementdisplayedPage.clickShow()
-    await elementdisplayedPage.setShowText(data.showTextValue)
+    await thirdDivisionPage.clickShow()
+    await thirdDivisionPage.setShowText(data.showTextValue)
 });
 
 When(/^I hover and click on reload$/, async () => {
@@ -151,5 +159,5 @@ When(/^I click on signup button$/, async () => {
 });
 
 Then(/^I navigate to my course page with header \"([^\"]*)\"$/, async (mycourses) => {
-    await expect(mycourseheaderPage.mycoursesHeader).toHaveText(mycourses)
+    await expect(registerPage.mycoursesHeader).toHaveText(mycourses)
 });
