@@ -17,14 +17,14 @@ class FirstDivision {
     get dropdown() {
         return $("#carselect")
     }
-    async selectDropDown(carSelect : string) {
+    async selectDropDown(carSelect: string) {
         await this.dropdown.selectByVisibleText(carSelect)
         report.addStep(`selected by visible text : ${carSelect}`)
     }
     get multipleSelect() {
         return $("#multiple-select-example")
     }
-    async setMultipleSelect(multipleSelectValue : string) {
+    async setMultipleSelect(multipleSelectValue: string) {
         await this.multipleSelect.selectByVisibleText(multipleSelectValue)
         report.addStep(`selected by visible text: ${multipleSelectValue}`)
     }
