@@ -53,12 +53,12 @@ export const config: WebdriverIO.Config = {
         maxInstances: 2,
         browserName: 'chrome',
         acceptInsecureCerts: true
-    },
-    {
-        maxInstances: 2,
-        browserName: 'MicrosoftEdge',
-        acceptInsecureCerts: true
     }
+    // {
+    //     maxInstances: 2,
+    //     browserName: 'MicrosoftEdge',
+    //     acceptInsecureCerts: true
+    // }
     ],
     //
     // ===================

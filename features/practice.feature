@@ -11,18 +11,22 @@ Feature: Automate letskodeit app
     Scenario: Automate Radio Button Example
 
         When I click on radiobutton
+        Then I can see the radiobutton selected
 
     Scenario: Automate Select Class Example
 
         When I select from drop down
+        Then I can see the text of dropdown as "BMW"
 
     Scenario: Automate Multiple Select Example
 
         When I select from multiple select
+        Then I can see the text of multipleselect as "Peach"
 
     Scenario: Automate Checkbox Example
 
         When I click on checkbox
+        Then I can see the checkbox selected
 
     Scenario: Automate Switch Window Example
 
@@ -62,7 +66,7 @@ Feature: Automate letskodeit app
         Then I see page header as "Practice Page"
 
     Scenario: Automate iFrame Example
-    
+
         Then I validate the header of iframe as "All Courses"
 
     Scenario: signin to letskodeit app

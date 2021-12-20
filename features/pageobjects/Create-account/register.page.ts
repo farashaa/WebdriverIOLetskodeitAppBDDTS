@@ -42,5 +42,8 @@ class Register {
         await this.signupSubmit.click()
         report.addStep(`performed click on : ${await this.signupSubmit.selector}`)
     }
+    get mycoursesHeader() {
+        return $("//h1[@class='dynamic-heading']")
+    }
 }
 export default new Register()
