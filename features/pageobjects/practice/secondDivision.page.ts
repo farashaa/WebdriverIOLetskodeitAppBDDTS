@@ -1,5 +1,5 @@
 import report from '@wdio/allure-reporter'
-class secondDivision{
+class secondDivision {
     get openWindow() {
         return $("#openwindow")
     }
@@ -30,7 +30,7 @@ class secondDivision{
     get name() {
         return $("//input[@placeholder='Enter Your Name']")
     }
-    async enterName(alertName :string) {
+    async enterName(alertName: string) {
         await this.name.setValue(alertName)
         report.addStep(`entering name : ${alertName}`)
     }

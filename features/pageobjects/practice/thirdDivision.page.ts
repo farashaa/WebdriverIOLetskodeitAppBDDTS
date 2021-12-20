@@ -1,5 +1,5 @@
 import report from '@wdio/allure-reporter'
-class thirdDivision{
+class thirdDivision {
     get show() {
         return $("#show-textbox")
     }
@@ -10,7 +10,7 @@ class thirdDivision{
     get showText() {
         return $("#displayed-text")
     }
-    async setShowText(showTextValue : string) {
+    async setShowText(showTextValue: string) {
         await this.showText.setValue(showTextValue)
         report.addStep(`entered : ${showTextValue}`)
     }
@@ -24,7 +24,7 @@ class thirdDivision{
     get enableText() {
         return $("#enabled-example-input")
     }
-    async setEnableText(enableTextValue : string) {
+    async setEnableText(enableTextValue: string) {
         await this.enableText.setValue(enableTextValue)
         report.addStep(`enetering value in enable element: ${enableTextValue}`)
     }
