@@ -1,11 +1,11 @@
-import report from '@wdio/allure-reporter'
+import { addLog } from '../../../utils/addLog'
 class secondDivision {
     get openWindow() {
         return $("#openwindow")
     }
     async clickOpenWindow() {
         await this.openWindow.click()
-        report.addStep(`performed click on : ${await this.openWindow.selector}`)
+        addLog(`performed click on : ${await this.openWindow.selector}`)
     }
     get allcoursesHeader() {
         return $("//h1")
@@ -15,14 +15,14 @@ class secondDivision {
     }
     async clickOpenTab() {
         await this.openTab.click()
-        report.addStep(`performed click on : ${await this.openTab.selector}`)
+        addLog(`performed click on : ${await this.openTab.selector}`)
     }
     get javascript() {
         return $("//*[@id='course-list']/div[1]/div/a/div[2]/h4")
     }
     async clickJavascript() {
         await this.javascript.click()
-        report.addStep(`performed click on : ${await this.javascript.selector}`)
+        addLog(`performed click on : ${await this.javascript.selector}`)
     }
     get javascriptHeader() {
         return $(".dynamic-heading.text-blue.custom-heading")
@@ -32,14 +32,14 @@ class secondDivision {
     }
     async enterName(alertName: string) {
         await this.name.setValue(alertName)
-        report.addStep(`entering name : ${alertName}`)
+        addLog(`entering name : ${alertName}`)
     }
     get confirm() {
         return $("#confirmbtn")
     }
     async clickConfirm() {
         await this.confirm.click()
-        report.addStep(`performed click on : ${await this.confirm.selector}`)
+        addLog(`performed click on : ${await this.confirm.selector}`)
     }
 }
 export default new secondDivision()

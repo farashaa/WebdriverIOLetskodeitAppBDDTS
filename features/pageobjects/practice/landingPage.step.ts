@@ -1,10 +1,10 @@
-import report from '@wdio/allure-reporter'
+import { addLog } from '../../../utils/addLog'
 class LandingPage {
     async invokeUrl() {
         await browser.url("https://courses.letskodeit.com/practice")
         await browser.maximizeWindow()
-        report.addStep("invoking url")
-        report.addStep("Maximizing window")
+        addLog("invoking url")
+        addLog("Maximizing window")
     }
 }
 export default new LandingPage()
